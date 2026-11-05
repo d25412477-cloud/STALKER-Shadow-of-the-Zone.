@@ -3,20 +3,33 @@ extends Control
 func _ready():
     var title = Label.new()
     title.text = "STALKER\nSHADOW OF THE ZONE"
-    title.position = Vector2(30, 80)
-    title.add_theme_font_size_override("font_size", 34)
+    title.position = Vector2(30, 70)
+    title.add_theme_font_size_override("font_size", 38)
+    title.add_theme_color_override("font_color", Color(0.75, 0.8, 0.65))
     add_child(title)
 
-    create_button("НОВАЯ ИГРА", 250, start_game)
-    create_button("ПРОДОЛЖИТЬ", 320, continue_game)
-    create_button("НАСТРОЙКИ", 390, settings)
-    create_button("ВЫХОД", 460, exit_game)
+    var subtitle = Label.new()
+    subtitle.text = "ЧЕРНОБЫЛЬСКАЯ ЗОНА ОТЧУЖДЕНИЯ"
+    subtitle.position = Vector2(32, 180)
+    subtitle.add_theme_font_size_override("font_size", 14)
+    add_child(subtitle)
+
+    create_button("НОВАЯ ИГРА", 280, start_game)
+    create_button("ПРОДОЛЖИТЬ", 350, continue_game)
+    create_button("НАСТРОЙКИ", 420, settings)
+    create_button("ВЫХОД", 490, exit_game)
+
+    var version = Label.new()
+    version.text = "BUILD 0.1 · ANDROID"
+    version.position = Vector2(30, 650)
+    version.add_theme_font_size_override("font_size", 13)
+    add_child(version)
 
 func create_button(text_value, y, callback):
     var button = Button.new()
     button.text = text_value
-    button.position = Vector2(40, y)
-    button.size = Vector2(260, 55)
+    button.position = Vector2(35, y)
+    button.size = Vector2(280, 55)
     button.pressed.connect(callback)
     add_child(button)
 
