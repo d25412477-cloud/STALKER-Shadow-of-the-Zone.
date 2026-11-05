@@ -3,17 +3,12 @@
 [ext_resource type="PackedScene" path="res://world.tscn" id="1"]
 [ext_resource type="PackedScene" path="res://player.tscn" id="2"]
 [ext_resource type="Script" path="res://mobile_controls.gd" id="3"]
-
-[sub_resource type="Environment" id="Environment_main"]
-background_mode = 1
-background_color = Color(0.12, 0.15, 0.12, 1)
-ambient_light_source = 3
-ambient_light_color = Color(0.6, 0.65, 0.55, 1)
+[ext_resource type="Script" path="res://zone_atmosphere.gd" id="4"]
 
 [node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_main")
+script = ExtResource("4")
 
 [node name="World" parent="." instance=ExtResource("1")]
 
@@ -22,7 +17,7 @@ position = Vector3(0, 0, 0)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 rotation_degrees = Vector3(-45, -30, 0)
-light_energy = 0.7
+light_energy = 0.55
 
 [node name="MobileControls" type="CanvasLayer" parent="."]
 script = ExtResource("3")
