@@ -1,6 +1,13 @@
+
 extends Control
 
 func _ready():
+    var background = ColorRect.new()
+    background.color = Color(0.055, 0.07, 0.06, 1)
+    background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    add_child(background)
+    move_child(background, 0)
+
     var title = Label.new()
     title.text = "STALKER\nSHADOW OF THE ZONE"
     title.position = Vector2(30, 70)
@@ -25,22 +32,31 @@ func _ready():
     version.add_theme_font_size_override("font_size", 13)
     add_child(version)
 
-func create_button(text_value, y, callback):
+
+func create_button(button_text: String, y: float, callback: Callable):
     var button = Button.new()
-    button.text = text_value
+    button.text = button_text
     button.position = Vector2(35, y)
     button.size = Vector2(280, 55)
     button.pressed.connect(callback)
     add_child(button)
 
+
 func start_game():
-    get_tree().change_scene_to_file("res://main.tscn")
+    print("Загрузка Зоны...")
+    var error = get_tree().change_scene_to_file("res://main.tscn")
+
+    if error != OK:
+        push_error("Не удалось загрузить main.tscn. Код ошибки: " + str(error))
+
 
 func continue_game():
     start_game()
 
+
 func settings():
-    print("Настройки")
+    print("Настройки пока разрабатываются")
+
 
 func exit_game():
     get_tree().quit()
