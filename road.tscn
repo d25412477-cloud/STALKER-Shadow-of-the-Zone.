@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3]
+
+[sub_resource type="StandardMaterial3D" id="RoadMaterial"]
+albedo_color = Color(0.16, 0.15, 0.13, 1)
+
+[sub_resource type="BoxMesh" id="RoadMesh"]
+size = Vector3(5, 0.08, 100)
+material = SubResource("RoadMaterial")
+
+[node name="Road" type="Node3D"]
+
+[node name="RoadSurface" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.05, 0)
+mesh = SubResource("RoadMesh")
