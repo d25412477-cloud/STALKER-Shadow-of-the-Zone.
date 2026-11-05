@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3]
+
+[sub_resource type="StandardMaterial3D" id="Wall"]
+albedo_color = Color(0.3, 0.29, 0.23, 1)
+
+[sub_resource type="BoxMesh" id="HouseMesh"]
+size = Vector3(8, 4, 6)
+material = SubResource("Wall")
+
+[node name="AbandonedHouse" type="Node3D"]
+
+[node name="Building" type="MeshInstance3D" parent="."]
+position = Vector3(0, 2, 0)
+mesh = SubResource("HouseMesh")
