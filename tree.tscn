@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3]
+
+[sub_resource type="StandardMaterial3D" id="TrunkMaterial"]
+albedo_color = Color(0.22, 0.13, 0.07, 1)
+
+[sub_resource type="CylinderMesh" id="TrunkMesh"]
+top_radius = 0.18
+bottom_radius = 0.3
+height = 3.5
+material = SubResource("TrunkMaterial")
+
+[sub_resource type="StandardMaterial3D" id="LeavesMaterial"]
+albedo_color = Color(0.12, 0.2, 0.1, 1)
+
+[sub_resource type="SphereMesh" id="LeavesMesh"]
+radius = 1.5
+height = 3.0
+material = SubResource("LeavesMaterial")
+
+[node name="Tree" type="Node3D"]
+
+[node name="Trunk" type="MeshInstance3D" parent="."]
+position = Vector3(0, 1.75, 0)
+mesh = SubResource("TrunkMesh")
+
+[node name="Leaves" type="MeshInstance3D" parent="."]
+position = Vector3(0, 3.8, 0)
+mesh = SubResource("LeavesMesh")
